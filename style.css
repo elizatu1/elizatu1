@@ -1,77 +1,127 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
     background-color: #ffffff;
+    color: #000000;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    background-color: #ffffff;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #666;
-}
-
-main {
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding: 40px 20px;
-}
-
-#home {
+.hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    position: relative;
+    background-color: #f8f8f8;
 }
 
-h1 {
-    font-size: 48px;
+.name-container {
+    position: relative;
+    overflow: hidden;
     margin-bottom: 20px;
-    color: #333;
 }
 
-.subtitle {
-    font-size: 24px;
-    color: #666;
-    margin-bottom: 40px;
+h1.glitch {
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #000000;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    margin: 0;
 }
 
-#portfolio {
-    padding: 60px 0;
+h1.glitch::before,
+h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+h1.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff3366;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+h1.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #0066ff;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+.profession {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: #333333;
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid #dedede;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-text {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background-color: #000000;
+    animation: scroll 2s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    100% { clip: rect(32px, 9999px, 162px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(12px, 9999px, 164px, 0); }
+    100% { clip: rect(62px, 9999px, 152px, 0); }
+}
+
+@keyframes scroll {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ffffff, #f0f0f0);
+    z-index: -1;
 }
