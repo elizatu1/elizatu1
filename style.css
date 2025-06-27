@@ -41,13 +41,16 @@ section {
 
 h1 {
     font-size: 3rem;
+    font-weight: 300; /* делаем шрифт тоньше */
     text-align: center;
     margin: 2rem 0;
     position: relative;
-    animation: float 6s ease-in-out infinite;
+    animation: gentleFloat 8s ease-in-out infinite; /* замедляем анимацию */
+    letter-spacing: 2px; /* добавляем расстояние между буквами */
+    color: #333;
 }
 
-h1::before,
+/* Убираем глитч-эффект и делаем более тонкую анимацию */
 h1::after {
     content: attr(data-text);
     position: absolute;
@@ -55,34 +58,20 @@ h1::after {
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 0.5;
+    animation: gentleFade 4s ease-in-out infinite;
 }
 
-h1::before {
-    left: 2px;
-    text-shadow: -2px 0 #333;
-    animation: glitch-anim 3s infinite linear alternate-reverse;
-}
-
-h1::after {
-    left: -2px;
-    text-shadow: -2px 0 #666;
-    animation: glitch-anim2 2s infinite linear alternate-reverse;
-}
-
-@keyframes float {
+@keyframes gentleFloat {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); } /* уменьшаем амплитуду движения */
     100% { transform: translateY(0px); }
 }
 
-@keyframes glitch-anim {
-    0% { clip: rect(42px, 9999px, 44px, 0); }
-    100% { clip: rect(32px, 9999px, 162px, 0); }
-}
-
-@keyframes glitch-anim2 {
-    0% { clip: rect(12px, 9999px, 164px, 0); }
-    100% { clip: rect(62px, 9999px, 152px, 0); }
+@keyframes gentleFade {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.3; }
 }
 
 h2 {
