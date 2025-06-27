@@ -5,15 +5,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 header {
     background-color: white;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 nav ul {
@@ -26,7 +26,10 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
 }
 
 main {
@@ -35,36 +38,34 @@ main {
     padding: 2rem;
 }
 
-section {
-    margin-bottom: 4rem;
+.name-block {
+    margin: 8rem 0 0 4rem;
+    text-align: left;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 300;
-    text-align: center;
-    margin: 2rem 0;
-    letter-spacing: 2px;
+    letter-spacing: -1px;
     color: #333;
-    position: relative;
-    animation: subtle-fade 3s ease-in-out;
-    transition: color 0.3s ease;
+    margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
-h1:hover {
-    color: #000;
+.profession {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-@keyframes subtle-fade {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+section {
+    margin-bottom: 4rem;
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    font-weight: 300;
 }
